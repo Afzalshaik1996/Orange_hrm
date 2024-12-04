@@ -27,3 +27,9 @@ Feature: Login to Orange HRM Application
     Examples:
       | username1   | password1   | errorMessage              |
       | admin$$      | wrongPass  |Invalid credentials|
+
+
+
+
+
+
