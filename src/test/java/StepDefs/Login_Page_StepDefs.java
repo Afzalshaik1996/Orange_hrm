@@ -1,6 +1,5 @@
 package StepDefs;
 
-import Pages.Home_page;
 import Pages.Login_Page;
 import Utils.WebDriverFactory;
 import io.cucumber.java.After;
@@ -14,13 +13,14 @@ import org.openqa.selenium.edge.EdgeDriver;
 import static org.testng.Assert.assertTrue;
 
 public class Login_Page_StepDefs {
-    WebDriver driver;
+    private WebDriver driver;
     Login_Page loginPage = new Login_Page(driver);
-
 
     @Given("User opens the desired browser")
     public void openBrowser() {
+        //driver = WebDriverFactory.getDriver();
         WebDriverManager.edgedriver().setup();
+        driver = new EdgeDriver();
         driver.manage().window().maximize();
     }
 
@@ -41,9 +41,10 @@ public class Login_Page_StepDefs {
     }
 
     @When("User clicks the login button")
-    public void LoginButtonClick(){
+    public void LoginButtonClick() {
         loginPage.clickLoginButton();
     }
+
     @Then("User should be logged in successfully")
     public void verifyLoginSuccess() throws InterruptedException {
         Thread.sleep(5000);
@@ -57,9 +58,9 @@ public class Login_Page_StepDefs {
 
     @After
     public void closeBrowser() {
-        if (driver != null) {
-            driver.quit();
-        }
+        WebDriverFactory.quitDriver();
     }
+
 }
+
 
