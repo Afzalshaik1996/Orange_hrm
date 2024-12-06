@@ -1,18 +1,15 @@
 package StepDefs;
 
 import Pages.Home_page;
-import Pages.Login_Page;
 import Utils.WebDriverFactory;
 import io.cucumber.java.After;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static org.testng.Assert.assertEquals;
 
 public class Home_Page_StepDefs {
@@ -23,7 +20,7 @@ public class Home_Page_StepDefs {
     @Given("User open a desire browser")
     public void user_open_a_desire_browser() {
         WebDriverManager.edgedriver().setup();
-        //driver = new EdgeDriver();
+        driver = new EdgeDriver();
         driver.manage().window().maximize();
     }
     @When("Enter the {string} of a website")
@@ -35,7 +32,8 @@ public class Home_Page_StepDefs {
     @Then("User should be able to navigate the website successfully and verify the {string}")
     public void userShouldBeAbleToNavigateTheWebsiteSuccessfullyAndVerifyThe(String ExpectedTitle) {
         String actualTitle = homePage.getPageTitle();
-        assertEquals(ExpectedTitle, actualTitle);
+        assert actualTitle.equals(ExpectedTitle);
+        //assertEquals(actualTitle, ExpectedTitle);
     }
 
     @After

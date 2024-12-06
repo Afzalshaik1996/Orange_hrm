@@ -7,25 +7,25 @@ Feature: Login to Orange HRM Application
 
   @ValidCredentials
   Scenario Outline: Login with valid credentials
-    Given User enters username as "<username>"
-    And User enters password as "<password>"
+    Given User enters username as "<Username>"
+    And User enters password as "<Password>"
     When User clicks the login button
     Then User should be logged in successfully
 
     Examples:
-      | username   | password   |
+      | Username   | Password   |
       | Admin      | admin123  |
 
 
   @InvalidCredentials
   Scenario Outline: Login with invalid credentials
-    Given User enters username as "<username1>"
-    And User enters password as "<password1>"
+    Given User enters username as "<Username1>"
+    And User enters password as "<Password1>"
     When User clicks the login button
-    Then User should see an error message "<errorMessage>"
+    Then User should see an error message "<ErrorMessage>"
 
     Examples:
-      | username1   | password1   | errorMessage              |
+      | Username1   | Password1   | ErrorMessage              |
       | admin$$      | wrongPass  |Invalid credentials|
 
 

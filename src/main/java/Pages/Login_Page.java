@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 
 public class Login_Page {
-     private WebDriver driver;
+    WebDriver driver;
 
      By usernameField = By.xpath("//input[@name='username']");
      By passwordField = By.xpath("//input[@name='password']");

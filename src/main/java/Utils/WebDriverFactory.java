@@ -30,6 +30,7 @@ public class WebDriverFactory {
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
+
                 case "safari":
                     driver = new SafariDriver();
                     break;
