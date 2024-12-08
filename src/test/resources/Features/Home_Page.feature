@@ -3,7 +3,7 @@ Feature: Navigate to HRM Application
   Scenario Outline: Open a OrangeHRM website
     Given User open a desire browser
     When Enter the "<url>" of a website
-#    Then User should be able to navigate the website successfully and verify the "<ExpectedTitle>"
+    Then User should be able to navigate the website successfully and verify the "<ExpectedTitle>"
 
 
 

@@ -1,13 +1,13 @@
 package Pages;
 
 
-import Utils.WebDriverFactory;
+//import Utils.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 
 
 public class Home_page {
 
-    private WebDriver driver;
+    WebDriver driver;
 
     public Home_page(WebDriver driver){
         this.driver = driver;
@@ -17,5 +17,7 @@ public class Home_page {
         return driver.getTitle();
 
     }
+
+
 
 }

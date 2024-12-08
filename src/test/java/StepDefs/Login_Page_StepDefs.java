@@ -9,23 +9,28 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import static org.testng.Assert.assertTrue;
 
 public class Login_Page_StepDefs {
-    private WebDriver driver;
-    Login_Page loginPage = new Login_Page(driver);
+    WebDriver driver;
+    Login_Page loginPage;
+
 
     @Given("User opens the desired browser")
     public void openBrowser() {
         //driver = WebDriverFactory.getDriver();
-        WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
-        driver.manage().window().maximize();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
     }
 
     @And("User navigates to the OrangeHRM_URL")
     public void navigateToLoginPage() throws InterruptedException {
+        driver.manage().window().maximize();
+        loginPage = new Login_Page(driver);
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         Thread.sleep(5000);
     }
